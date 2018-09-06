@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.custom.i18n.resources" value="globalMessage"/>
+
+
+    <package name="loginModel" extends="struts-default">
+        <action name="login" class="com.wei.q.action.LoginAction">
+            <result name="success">/WEB-INF/content/main.jsp</result>
+            <result name="input">/WEB-INF/content/loginForm.jsp</result>
+        </action>
+    </package>
+
+    <package name="defaultModel" extends="struts-default">
+        <action name="setLocal" class="com.wei.q.action.SetLocalAction">
+            <result name="success">/WEB-INF/content/loginForm.jsp</result>
+        </action>
+        <action name="*">
+            <result>/WEB-INF/content/{1}.jsp</result>
+        </action>
+    </package>
+</struts>
+
+
